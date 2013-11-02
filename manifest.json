@@ -5,25 +5,60 @@
   "description": "Yahoo Hack Taiwan 2013",
   "version": "0.1",
 
+  "icons": {
+      "128": "icons/icon128x128.png",
+      "48": "icons/icon48x48.png",
+      "16": "icons/icon16x16.png"
+  },
+
   "permissions": [ "tabs" , "*://*.mail.yahoo.com/*" ],
   
   "background": {
-    "scripts": [ "scripts/jquery-2.0.0.min.js", "scripts/jquery.min.map" ]
+    "scripts": [ "scripts/jquery-2.0.0.min.js", "scripts/jquery.min.map", "scripts/background.js" ]
   },
 
   "content_scripts": [{
       "all_frames": true,
-      "js": [ "scripts/jquery-2.0.0.min.js", "scripts/steven.js", "scripts/howler.min.js", "scripts/jquery.transit.min.js"],
+      "js": [ "scripts/jquery-2.0.0.min.js", "scripts/jquery.min.map", "scripts/contentscript.js", "scripts/howler.min.js", "scripts/jquery.transit.min.js", "scripts/jquery.countTo.js" ],
       "css": [ "styles/yhack.css" ],
       "matches": [ "*://*.mail.yahoo.com/*" ]
    }],
 
   "web_accessible_resources": [
+      "scripts/jquery.min.map",
+      "audio/sample.mp3",
+      "audio/drum/drum_strong.mp3",
+      "audio/drum/drum_weak.mp3",
+      "audio/drum/yahoo_audio.mp3",
+      "icons/icon128x128.png",
+      "icons/icon48x48.png",
       "images/beat/sample_beat.gif",
       "images/beat/beat_blue_medium.gif",
       "images/beat/beat_blue_small.gif",
       "images/beat/beat_red_large.gif",
       "images/beat/beat_red_medium.gif",
-      "images/beat/beat_red_small.gif"
-  ]
+      "images/beat/beat_red_small.gif",
+      "images/logo/yahoo_logo.png",
+      "images/logo/yahoo_logo_resize.png",
+      "images/smiley/yahoo_smiley_300.png",
+      "images/smiley/yahoo_smiley_120.png",
+      "images/hint/bad_hint.png",
+      "images/hint/fail_hint.png",
+      "images/hint/good_hint.png",
+      "images/hint/miss_hint.png",
+      "images/hint/perfect_hint.png",
+      "images/hint/spam_hint.png",
+      "images/dashboard/dashboard_deleted_small.png",
+      "images/dashboard/dashboard_deleted.png",
+      "images/dashboard/dashboard_archived.png",
+      "images/dashboard/dashboard_archived_small.png",
+      "images/logo/yahoo_logo_white.png",
+
+      "images/beat/yahoo_smile_purple_130.png",
+      "images/beat/yahoo_smile_yellow_130.png"
+  ],
+
+  "browser_action": {
+      "default_icon": "icons/icon48x48.png"
+  }
 }

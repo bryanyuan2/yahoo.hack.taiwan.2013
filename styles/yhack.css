@@ -1,0 +1,327 @@
+/* Quicksand CSS3 font http://fonts.googleapis.com/css?family=Quicksand:400,700 */
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Quicksand Regular'), local('Quicksand-Regular'), url(http://themes.googleusercontent.com/static/fonts/quicksand/v2/sKd0EMYPAh5PYCRKSryvW7O3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Quicksand Bold'), local('Quicksand-Bold'), url(http://themes.googleusercontent.com/static/fonts/quicksand/v2/32nyIRHyCu6iqEka_hbKsqRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow-x: hidden;
+}
+
+.beat {
+
+}
+
+.beat_text {
+    font-size: 22px;
+    line-height: 28px;
+    text-align: center;
+    padding: 12px 6px 12px 6px;
+    -webkit-border-radius: 6px;
+    background-color: #000000;
+    color: #FFFFFF;
+    width: 280px;
+    height: 60px;
+    padding-left: 12px;
+    padding-right: 12px;
+
+}
+.beat_box {
+    position: absolute;
+    top: -20px;
+    left: 105%;
+    z-index: 2;
+}
+
+.river {
+	background: rgb(64,26,145);
+	width: 100%;
+	height: 30%;
+	position: absolute;
+    top: 70%;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.75);
+    box-shadow:         0px 0px 25px rgba(0, 0, 0, 0.75);
+    z-index: 10;
+}
+
+.drum {
+    margin-top: 5%;
+    margin-left: 60px;
+    width: 110px;
+    height: 110px;
+    -webkit-border-radius: 55px;
+    background: #FFFFFF;
+    border: 3px solid;
+    border-color: #000000;
+    -webkit-box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.75);
+    box-shadow:         0px 0px 25px rgba(255, 255, 255, 0.75);
+}
+
+.drum_beat_hint {
+    -webkit-box-shadow: 0px 0px 600px rgba(255, 255, 255, 0.75);
+    box-shadow:         0px 0px 600px rgba(255, 255, 255, 0.75);
+}
+
+.hint {
+    color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    font-size: 60px;
+    line-height: 170px;
+    text-align: center;
+}
+
+.click_counter {
+    position: absolute;
+    top: 160px;
+    width: 100%;
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.85);
+    font-size: 120px;
+    text-align: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.yhack_score {
+    position: absolute;
+    top: 60%;
+    width: 40%;
+    height: 10%;
+    left: 60%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 64px;
+    text-align: right;
+    color: #FFFFFF;
+    background-image: linear-gradient(right , rgb(0,0,0) 30%, rgb(255,255,255) 100%);
+    background-image: -o-linear-gradient(right , rgb(0,0,0) 30%, rgb(255,255,255) 100%);
+    background-image: -webkit-linear-gradient(right , rgb(0,0,0) 30%, rgb(255,255,255) 100%);
+    background-image: -webkit-gradient(
+        linear,
+        right 50,
+        left 50,
+        color-stop(0.3, rgb(0,0,0)),
+        color-stop(1, rgb(255,255,255))
+    );
+
+    z-index: 2;
+
+}
+
+/* yahoo logo */
+#yahoo_pool {
+    float: bottom;
+    position: absolute;
+    width: 100%;
+    height: 53px;
+    background-color: rgb(64,26,145);
+}
+.yahoo_logo {
+    width: 10000;
+    height: 100%;
+    background-image: url('chrome-extension://__MSG_@@extension_id__/images/logo/yahoo_logo_resize.png');
+    position: relative;
+}
+.logo_loop {
+    -webkit-animation: moveclouds 30s linear infinite;
+    -o-animation: moveclouds 30s linear infinite;
+}
+@-webkit-keyframes moveclouds {
+    0% { margin-left: 0px; }
+    100% { margin-left: -2000px; }
+}
+@-o-keyframes moveclouds {
+    0% { margin-left: 0; }
+    100% { margin-left: -2000px; }
+}
+
+/* */
+.smiley {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+}
+
+/* */
+.yhack_mail_board {
+    position: absolute;
+    background:  rgb(64,26,145);
+    width: 100%;
+    height: 1px;
+    top: 0px;
+    left: 0px;
+    -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.75);
+    box-shadow:         0px 0px 25px rgba(0, 0, 0, 0.75);
+    z-index: 8;
+}
+
+.yhack_unread_mail {
+    text-align: center;
+    font-size: 24px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin-top: 60px;
+    margin-bottom: 24px;
+}
+
+.yhack_unread_mail_title {
+    color: #FFFFFF;
+    background-color: rgba(0,0,0,0.5);
+    
+    font-size: 18px;
+    line-height: 48px;
+    text-align: center;
+
+    padding: 12px 6px 12px 6px;
+    margin: 30px 6px 30px 6px;
+    
+    -webkit-border-radius: 5px;
+    cursor: pointer;
+}
+
+.top_mail_item {
+    color: #FFFFFF;
+    font: 110px Impact, sans-serif;
+    text-transform: uppercase;
+    text-shadow: 0 0 100px yellow;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding-top: 6px;
+}
+
+.beat_comment_text {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    width: 60%;
+    text-align: center;
+
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgb(64,26,145)), color-stop(65%,rgb(64,26,145)), color-stop(35%,rgb(64,26,145)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%, rgb(64,26,145) 35%, rgb(64,26,145) 50%, rgb(64,26,145) 65%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgb(64,26,145) 50%,rgba(255,255,255,1) 100%); /* W3C */
+    z-index: 10;
+}
+
+#dashboard {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 101;
+    vertical-align: middle;
+}
+
+#dashboard_score_container {
+    position: absolute;
+    width: 220px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 30px;
+    padding-top: 5px;
+    top: 75%;
+    left: 10%;
+}
+
+#dashboard_score_water {
+    background-image: linear-gradient(0 bottom, rgb(255,255,255) 0%, rgb(64,26,145) 37%);
+    background-image: -o-linear-gradient(0 bottom, rgb(255,255,255) 0%, rgb(64,26,145) 37%);
+    background-image: -webkit-linear-gradient(0 bottom, rgb(255,255,255) 0%, rgb(64,26,145) 37%);
+    background-image: -ms-linear-gradient(0 bottom, rgb(255,255,255) 0%, rgb(64,26,145) 37%);
+    background-image: -webkit-gradient(
+        linear,
+        0 bottom,
+        left top,
+        color-stop(0, rgb(255,255,255)),
+        color-stop(0.37, rgb(64,26,145))
+    );
+    position: absolute;
+    bottom: 0px;
+    width: 120px;
+    height: 40px;
+    -webkit-transition: all 3s ease-out;
+    -o-transition: all 3s ease-out;
+    transition: all 3s ease-out;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75);
+    box-shadow:         0px 0px 20px rgba(255, 255, 255, 0.75);
+}
+
+.dashboard_mail_section {
+    position: absolute;
+    height: 100%;
+    width: 60%;
+    left: 25%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.dashboard_mail_list {
+    color: #FFFFFF;
+    width: 100%;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 6px 6px 6px 6px;
+    -webkit-border-radius: 5px;
+    cursor: pointer;
+}
+
+.dashboard_mail_list:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+    -webkit-transition: all 0.1s ease-out;
+    -o-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+}
+
+.dashboard_mail_status_img {
+    margin-left: 60px;
+    padding: 6px 12px 6px 12px;
+    vertical-align: middle;
+    -webkit-border-radius: 5px;
+    background-color: rgb(64,26,145);
+}
+
+.dashboard_score_text {
+    margin-top: 120px;
+    color: #FFFFFF;
+    font: 110px Impact, sans-serif;
+    text-transform: uppercase;
+    text-shadow: 0 0 100px yellow;
+    bottom: 0;
+}
+
+.dashboard_score_logo {
+    position: absolute;
+    left: 8%;
+    top: 75%;
+    -webkit-border-radius: 30px;
+    -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.75);
+    box-shadow:         0px 0px 25px rgba(0, 0, 0, 0.75);
+    width: 200px;
+    height: 66px;
+}
+
+.yhack_beat_clone {
+    position: absolute;
+    top: 63%;
+    left: 60px;
+    z-index: 9;
+}

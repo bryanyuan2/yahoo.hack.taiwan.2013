@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+
+  "name": "Yahoo Hack Taiwan 2013",
+  "description": "Yahoo Hack Taiwan 2013",
+  "version": "0.1",
+
+  "permissions": [ "tabs" , "*://*.mail.yahoo.com/*" ],
+  
+  "background": {
+    "scripts": [ "scripts/jquery-2.0.0.min.js", "scripts/jquery.min.map" ]
+  },
+
+  "content_scripts": [{
+      "all_frames": true,
+      "js": [ "scripts/jquery-2.0.0.min.js", "scripts/steven.js", "scripts/howler.min.js", "scripts/jquery.transit.min.js"],
+      "css": [ "styles/yhack.css" ],
+      "matches": [ "*://*.mail.yahoo.com/*" ]
+   }],
+
+  "web_accessible_resources": [
+      "images/beat/sample_beat.gif",
+      "images/beat/beat_blue_medium.gif",
+      "images/beat/beat_blue_small.gif",
+      "images/beat/beat_red_large.gif",
+      "images/beat/beat_red_medium.gif",
+      "images/beat/beat_red_small.gif"
+  ]
+}

@@ -20,10 +20,13 @@ $(document).ready(function() {
     var drum_fuzzy = 0.2; 
     var drum_color = "#E95020";
     var sound_op = "";
+    var yahoo_op = "";
     
+
+    var delete_mail_cid_array = [] ;
     // beat_ary
     //var beat_ary = ["images/beat/beat_blue_medium.gif", "images/beat/beat_blue_small.gif", "images/beat/beat_red_large.gif", "images/beat/beat_red_medium.gif", "images/beat/beat_red_small.gif"];
-    var beat_ary = ["images/beat/yahoo_smile_yellow_130.png", "images/beat/yahoo_smile_purple_130.png", "images/beat/yahoo_smile_halloween_130.png", "images/beat/yahoo_smile_hulk_130.png"];
+    var beat_ary = ["images/beat/yahoo_smile_yellow_130.png", "images/beat/yahoo_smile_halloween_130.png", "images/beat/yahoo_smile_hulk_130.png", "images/beat/yahoo_smile_yellow_130.png", "images/beat/yahoo_smile_pink_130.png", "images/beat/yahoo_smile_yellow_85.png", "images/beat/yahoo_smile_halloween_85.png", "images/beat/yahoo_smile_hulk_85.png", "images/beat/yahoo_smile_yellow_85.png", "images/beat/yahoo_smile_pink_85.png" ];
 
     // audio
     var soundtrack = chrome.extension.getURL("audio/sample.mp3");
@@ -202,7 +205,7 @@ $("body").append(yhack_score);
     var beat_count_time = 0;
     var now_index = 0;
     var saved_beat_type = [];
-    ch
+    
     function beat_type_random()
     {
         beat_type_num = parseInt(Math.random()*(beat_ary.length));
@@ -330,7 +333,7 @@ $("body").append(yhack_score);
                                     "groupBy": "unRead",
                                     "sortOrder": "down",
                                     "start":0,
-                                    "numCInfos": unread_mail_count
+                                    "numCInfos": 70
                                 }
                             ]
                         }
@@ -345,8 +348,8 @@ $("body").append(yhack_score);
                                 /* ymail api get mail */
                                 var mail_list = response.result.conversations;
                                 
-                                for (var i=0;i<10;i++) {
-                                //for (var i in mail_list) {
+                                //for (var i=0;i<10;i++) {
+                                for (var i in mail_list) {
                                     var title = mail_list[i].conversation.summary.subject;
                                     var cid = mail_list[i].conversation.cid;
                                     var idate = mail_list[i].conversation.summary.iDate;
@@ -371,19 +374,6 @@ $("body").append(yhack_score);
                                 var this_mail_status = $('<div>').addClass("this_mail_status");
                                 $("body").append(this_mail_status);    
 
-                                /* yahck_delete_mail_request */
-                                var yahck_delete_mail_request = {
-                                    "method":"BatchExecute" ,
-                                    "params": [{
-                                    "call": [{
-                                        "MoveThreads": {
-                                            "cids": [ mail_cid_ary[0] ],
-                                            "snapshotTime": mail_idate_ary[0],
-                                            "sourceFid": "Inbox",
-                                            "destinationFid": "Trash"
-                                        }}, { "ListFolders": {} }
-                                    ]}]
-                                }
 
                                 var yhack_hint = $('<div>').addClass("hint").html(hint_text.replace("n", "<span class='top_mail_item'>" + mail_list.length + "</span>"));
                                 yhack_yahoo_pool.append(yhack_hint);
@@ -395,13 +385,13 @@ $("body").append(yhack_score);
                                 $(yataiko_logo_trans_circle).addClass("yataiko_logo_trans_circle");
                                 
                                 $(yataiko_logo_trans_circle).append(yataiko_logo_trans);
-                                $("body").append(yataiko_logo_trans_circle);                                            
+                                $("body").append(yataiko_logo_trans_circle);                                                                       
                 
                                 
                                 $(".yataiko_logo_trans").click(function(){
                                     $(".hint").remove();
                                     $(".yataiko_logo_trans").fadeOut();
-                                    //sound_op = new Howl({ urls: [ soundtrack ], volume: 0.5 }).play();
+                                    sound_op = new Howl({ urls: [ soundtrack ], volume: 0.5 }).play();
                                     beat_timer_func = setInterval(function(){ beat_timer() }, beat_sec);
                                 });
 
@@ -410,7 +400,7 @@ $("body").append(yhack_score);
                                     $(this).remove();
                                     $(".yataiko_logo_trans").fadeOut();
                                     /* sound */
-                                    //sound_op = new Howl({ urls: [ soundtrack ], volume: 0.5 }).play();
+                                    sound_op = new Howl({ urls: [ soundtrack ], volume: 0.5 }).play();
                                     beat_timer_func = setInterval(function(){ beat_timer() }, beat_sec);
 
                                     console.log("total mail len = " + mail_title_ary.length);
@@ -426,6 +416,21 @@ $("body").append(yhack_score);
 
 
     function yhack_delete_ymail_list(token_url) {
+
+         /* yahck_delete_mail_request */
+        var yahck_delete_mail_request = {
+            "method":"BatchExecute" ,
+            "params": [{
+            "call": [{
+                "MoveThreads": {
+                    "cids": delete_mail_cid_array ,
+                    "snapshotTime": mail_idate_ary[0],
+                    "sourceFid": "Inbox",
+                    "destinationFid": "Trash"
+                }}, { "ListFolders": {} }
+            ]}]
+        }
+
         $.ajax({
             type: "POST",
             url: token_url,
@@ -437,11 +442,16 @@ $("body").append(yhack_score);
         });
     }
     
+    // achievement_text_array
+    // 3_combos 5_combos 10_combos 20_combos 3000 5000 10000 a_week no_trash
+    var achievement_text_array = Array("達成 3 個連擊", "5 個連擊達成", "10 個連擊達成", "20 個連擊達成", "3000 分達成", "5000 分達成", "10000 分達成", "連續一週使用達成", "沒有刪除任何信件達成");
+    var achievement_photo_array = Array("3_combos", "5_combos", "10_combos", "20_combos", "3000", "5000", "10000", "a_week", "no_trash");
+    var achievement_url_array = Array("images/badge/3_combos.png", "images/badge/5_combos.png", "images/badge/10_combos.png", "images/badge/20_combos.png", "images/badge/3000.png", "images/badge/5000.png", "images/badge/10000.png", "images/badge/a_week.png", "images/badge/no_trash.png");
 
     /* dashboard */
     function dashboard() {
         // sound_op fade
-        //sound_op.fade(0.5, 0.0, 2000);
+        sound_op.mute();
 
         var dashboard = document.createElement("div");
         var dashboard_mail_section = document.createElement("div");
@@ -468,6 +478,9 @@ $("body").append(yhack_score);
         var achievement_combo = 0;
 
 
+        yahoo_op = new Howl({ urls: [ yahoo_audio ], volume: 1.0 }).play();
+
+
         for(var i=0;i<mail_score_ary.length;i++){
             var dashboard_mail_list = document.createElement("div");
             var dashboard_mail_status_img = document.createElement("img");
@@ -475,11 +488,10 @@ $("body").append(yhack_score);
             $(dashboard_mail_list).addClass("dashboard_mail_list").attr("id", "dashboard_mail_list_" + i).text(mail_title_ary[i]);
 
             if (mail_status_ary[i] == 'deleted') {
-                console.log("log deleted = " + mail_status_ary[i]);
+                delete_mail_cid_array.push(mail_cid_ary[i]) ;
                 $(dashboard_mail_status_img).addClass("dashboard_mail_status_img_deleted").attr("src", chrome.extension.getURL("images/dashboard/dashboard_deleted_small.png"));    
             }
             else {
-                console.log("log other = " + mail_status_ary[i]);
                 $(dashboard_mail_status_img).addClass("dashboard_mail_status_img_archived").attr("src", chrome.extension.getURL("images/dashboard/dashboard_archived_small.png"));
             }
             $(dashboard_mail_list).append(dashboard_mail_status_img);
@@ -500,13 +512,6 @@ $("body").append(yhack_score);
 
         $(dashboard_score_text).addClass("dashboard_score_text").text("0");
         $(dashboard_score_share).addClass("dashboard_score_share").text("分享到 Facebook");
-
-
-        // achievement_text_array
-        // 3_combos 5_combos 10_combos 20_combos 3000 5000 10000 a_week no_trash
-        var achievement_text_array = Array("達成 3 個連擊", "5 個連擊達成", "10 個連擊達成", "20 個連擊達成", "3000 分達成", "5000 分達成", "10000 分達成", "連續一週使用達成", "沒有刪除任何信件達成");
-        var achievement_photo_array = Array("3_combos", "5_combos", "10_combos", "20_combos", "3000", "5000", "10000", "a_week", "no_trash");
-        var achievement_url_array = Array("images/badge/3_combos.png", "images/badge/5_combos.png", "images/badge/10_combos.png", "images/badge/20_combos.png", "images/badge/3000.png", "images/badge/5000.png", "images/badge/10000.png", "images/badge/a_week.png", "images/badge/no_trash.png");
 
         // combo achievement
         var achievement_combo_string = mail_status_ary.join(",");
@@ -547,6 +552,7 @@ $("body").append(yhack_score);
             achievement_ary[8] = "True";
         }
 
+        get_chrome_storage() ;
 
         var dashboard_achievement_list = document.createElement("div");
         var dashboard_achievement_title = document.createElement("span");
@@ -556,30 +562,104 @@ $("body").append(yhack_score);
 
         $(dashboard_achievement_list).append(dashboard_achievement_title);
 
-        for (var i = 0 ; i < 9 ; i++) {
+        for (var i = 0 ; i < 8 ; i++) {
             if (achievement_ary[i] == "True")
             {
                 var dashboard_achievement_img = document.createElement("img");
                 $(dashboard_achievement_img).addClass("dashboard_achievement_img").attr("src", chrome.extension.getURL(achievement_url_array[i]));
                 $(dashboard_achievement_list).append(dashboard_achievement_img);
             }
-            
         }
 
         $(dashboard).append(dashboard_score_text).append(dashboard_achievement_list).append(dashboard_score_share);
-        $('.dashboard_score_text').countTo({from: 0, to: score_counter, speed: 2500});
 
-        // iframe
-        var iframe = document.createElement('iframe');
-        $(iframe).css("z-index", "102");
-        iframe.style.display = "none";
-        iframe.src = "http://revo.so/BioC2013/port.php?name=name&message=message&photo=3_combos";
-        //$("body").append(iframe);
+        // achievement send post
+        $('.dashboard_score_share').on('click' , function(){
+            var iframe = document.createElement('iframe');
+            iframe.style.display = "none";
+            iframe.src = "http://revo.so/BioC2013/background.html";
+            $("body").append(iframe);
+
+            var post_to_fb = setInterval(function(){
+                for (var i = 0; i < 8; i++)
+                {
+                    if (achievement_ary[i] == "True")
+                    {
+                        var name = achievement_text_array[i];
+                        var message = "恭喜您達成 YaTaiko 的一項成就！";
+                        var photo = achievement_photo_array[i];
+                        
+                        var iframe = document.createElement('iframe');
+                        $(iframe).css("z-index", "102");
+                        iframe.style.display = "none";
+                        iframe.src = "http://revo.so/BioC2013/port.php?name=" + name + "&message=" + message + "&photo=" + photo;
+                        $("body").append(iframe);
+                    }
+                }
+
+                clearInterval(post_to_fb);
+            }, 5000);
+        });
+
+        $('.dashboard_score_text').countTo({from: 0, to: score_counter, speed: 2500});
+        
+        // yhack_delete_ymail_list
+        yhack_delete_ymail_list(token_url) ;
+        
+
+
+        console.log(delete_mail_cid_array) ;
 
     }    
     
     /*  */
 
+    function get_chrome_storage(score_counter)
+    {
+        chrome.storage.sync.get('achievement_storage', function(result){
+
+            if (typeof(result.achievement_storage) == "undefined")
+            {
+                today = new Date() ;
+                chrome.storage.sync.set({'achievement_storage': JSON.stringify([{'score': 0, 'date': today.getDate()}])}, function(result){
+
+                });
+            }
+            else
+            {
+                today = new Date() ;
+                var value = JSON.parse(result.achievement_storage);
+                value.push(JSON.stringify({'score': score_counter, 'date': today.getDate()}));
+                console.log(value);
+
+                chrome.storage.sync.set({'achievement_storage': JSON.stringify(value)}, function(result){
+
+                });
+
+                if (value.length <= 7)
+                    console.log('not enougth long') ;
+                else
+                {
+                    value.sort() ;
+                    var bool_flag = false ;
+                    //console.log('is enougth long') ;
+                    for (var i = 1 ; i < value.length ; i++)
+                    {
+                        if (value[i].date == i)
+                            bool_flag = true ;
+                        else
+                        {
+                            bool_flag = false ;
+                            break ;
+                        }
+                    }
+
+                    if (bool_flag)
+                        achievement_ary[7] = true ;
+                }
+            }
+        });
+    }
 
     
 });

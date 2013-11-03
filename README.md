@@ -1,4 +1,4 @@
-YA TAIKO! - Yahoo Hack Taiwan 2013
+# YA TAIKO! - Yahoo Hack Taiwan 2013
 
 1. YA TAIKO! is a Google Chrome extension that helps you clean away your yahoo mailbox immediately 
 2. A Taiko-liked rhythm game integrated with achievement system

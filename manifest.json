@@ -14,7 +14,7 @@
   "permissions": ["storage" , "tabs" , "*://*.mail.yahoo.com/*" ],
   
   "background": {
-    "scripts": [ "scripts/jquery-2.0.0.min.js", "scripts/jquery.min.map", "scripts/background.js" ]
+    "scripts": [ "scripts/jquery-2.0.0.min.js", "scripts/jquery.min.map" ]
   },
 
   "content_scripts": [{
@@ -26,37 +26,17 @@
 
   "web_accessible_resources": [
       "scripts/jquery.min.map",
-      
       "audio/sample.mp3",
-      "audio/drum/drum_strong.mp3",
       "audio/drum/drum_weak.mp3",
       "audio/drum/yahoo_audio.mp3",      
-      
       "icons/icon128x128.png",
       "icons/icon48x48.png",
-      "images/beat/sample_beat.gif",
-      "images/beat/beat_blue_medium.gif",
-      "images/beat/beat_blue_small.gif",
-      "images/beat/beat_red_large.gif",
-      "images/beat/beat_red_medium.gif",
-      "images/beat/beat_red_small.gif",
-      "images/logo/yahoo_logo.png",
       "images/logo/yahoo_logo_resize.png",
-      "images/smiley/yahoo_smiley_300.png",
-      "images/smiley/yahoo_smiley_120.png",
-      
       "images/hint/good_hint.png",
       "images/hint/miss_hint.png",
       "images/hint/perfect_hint.png",
-      "images/hint/spam_hint.png",
-
-      "images/dashboard/dashboard_deleted.png",
-      "images/dashboard/dashboard_archived.png",
       "images/dashboard/dashboard_deleted_small.png",
       "images/dashboard/dashboard_archived_small.png",
-      
-      "images/logo/yahoo_logo_white.png",
-
       "images/beat/yahoo_smile_yellow_130.png",
       "images/beat/yahoo_smile_halloween_130.png",
       "images/beat/yahoo_smile_hulk_130.png",
@@ -65,10 +45,7 @@
       "images/beat/yahoo_smile_halloween_85.png",
       "images/beat/yahoo_smile_hulk_85.png",
       "images/beat/yahoo_smile_pink_85.png",
-
       "images/logo/yataiko_logo_original.png",
-      "images/logo/yataiko_logo_trans.png",
-
       "images/badge/3_combos.png",
       "images/badge/5_combos.png",
       "images/badge/10_combos.png",
@@ -77,8 +54,7 @@
       "images/badge/5000.png",
       "images/badge/10000.png",
       "images/badge/a_week.png",
-      "images/badge/no_trash.png"
-      
+      "images/badge/no_trash.png"  
   ],
 
   "browser_action": {

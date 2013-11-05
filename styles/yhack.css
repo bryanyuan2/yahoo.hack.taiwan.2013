@@ -1,4 +1,5 @@
 /* Quicksand CSS3 font http://fonts.googleapis.com/css?family=Quicksand:400,700 */
+
 @font-face {
     font-family: 'Quicksand';
     font-style: normal;
@@ -19,13 +20,11 @@
 body {
     overflow-x: hidden;
 }
-
 .beat {
 
 }
-
 .beat_text {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 28px;
     text-align: center;
     padding: 12px 6px 12px 6px;
@@ -44,7 +43,6 @@ body {
     left: 105%;
     z-index: 2;
 }
-
 .river {
 	background: rgb(64,26,145);
 	width: 100%;
@@ -56,7 +54,6 @@ body {
     box-shadow:         0px 0px 25px rgba(0, 0, 0, 0.75);
     z-index: 10;
 }
-
 .drum {
     margin-top: 5%;
     margin-left: 60px;
@@ -69,33 +66,18 @@ body {
     -webkit-box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.75);
     box-shadow:         0px 0px 25px rgba(255, 255, 255, 0.75);
 }
-
 .drum_beat_hint {
     -webkit-box-shadow: 0px 0px 600px rgba(255, 255, 255, 0.75);
     box-shadow:         0px 0px 600px rgba(255, 255, 255, 0.75);
 }
-
 .hint {
     color: #FFFFFF;
     width: 100%;
     height: 100%;
-    font-size: 60px;
+    font-size: 32px;
     line-height: 170px;
     text-align: center;
 }
-
-.click_counter {
-    position: absolute;
-    top: 160px;
-    width: 100%;
-    color: #FFFFFF;
-    background-color: rgba(0, 0, 0, 0.85);
-    font-size: 120px;
-    text-align: center;
-    padding-top: 24px;
-    padding-bottom: 24px;
-}
-
 .yhack_score {
     position: absolute;
     top: 60%;
@@ -119,10 +101,8 @@ body {
         color-stop(1, rgb(255,255,255))
     );
 
-    z-index: 2;
+    z-index: 10;
 }
-
-/* yahoo logo */
 #yahoo_pool {
     float: bottom;
     position: absolute;
@@ -148,15 +128,6 @@ body {
     0% { margin-left: 0; }
     100% { margin-left: -2000px; }
 }
-
-/* */
-.smiley {
-    position: absolute;
-    top: 40%;
-    left: 30%;
-}
-
-/* */
 .yhack_mail_board {
     position: absolute;
     background:  rgba(64,26,145,0.1);
@@ -168,7 +139,6 @@ body {
     box-shadow:         0px 0px 25px rgba(0, 0, 0, 0.75);
     z-index: 8;
 }
-
 .yhack_unread_mail {
     text-align: center;
     font-size: 24px;
@@ -177,22 +147,6 @@ body {
     margin-top: 60px;
     margin-bottom: 24px;
 }
-
-.yhack_unread_mail_title {
-    color: #FFFFFF;
-    background-color: rgba(0,0,0,0.5);
-    
-    font-size: 18px;
-    line-height: 48px;
-    text-align: center;
-
-    padding: 12px 6px 12px 6px;
-    margin: 30px 6px 30px 6px;
-    
-    -webkit-border-radius: 5px;
-    cursor: pointer;
-}
-
 .top_mail_item {
     color: #FFFFFF;
     font: 110px Impact, sans-serif;
@@ -202,20 +156,17 @@ body {
     margin-right: 6px;
     padding-top: 6px;
 }
-
 .beat_comment_text {
     position: absolute;
     top: 40%;
     left: 0%;
     width: 100%;
     text-align: center;
-
     background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgb(64,26,145)), color-stop(65%,rgb(64,26,145)), color-stop(35%,rgb(64,26,145)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%, rgb(64,26,145) 35%, rgb(64,26,145) 50%, rgb(64,26,145) 65%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
     background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgb(64,26,145) 50%,rgba(255,255,255,1) 100%); /* W3C */
     z-index: 10;
 }
-
 #dashboard {
     position: absolute;
     width: 100%;
@@ -224,7 +175,6 @@ body {
     z-index: 101;
     vertical-align: middle;
 }
-
 #dashboard_score_container {
     position: absolute;
     width: 220px;
@@ -235,7 +185,6 @@ body {
     top: 75%;
     left: 10%;
 }
-
 #dashboard_score_water {
     background-image: linear-gradient(0 bottom, rgb(255,255,255) 0%, rgb(64,26,145) 37%);
     background-image: -o-linear-gradient(0 bottom, rgb(255,255,255) 0%, rgb(64,26,145) 37%);
@@ -262,28 +211,25 @@ body {
     -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75);
     box-shadow:         0px 0px 20px rgba(255, 255, 255, 0.75);
 }
-
 .dashboard_mail_section {
     position: absolute;
     height: 60%;
-    width: 60%;
+    width: 70%;
     left: 25%;
     margin-top: 24px;
     margin-bottom: 24px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
-
 .dashboard_mail_list {
     color: #FFFFFF;
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
     padding: 6px 6px 6px 6px;
     -webkit-border-radius: 5px;
     cursor: pointer;
 }
-
 .dashboard_mail_list:hover {
     background-color: #FFFFFF;
     color: #000000;
@@ -291,13 +237,10 @@ body {
     -o-transition: all 0.1s ease-out;
     transition: all 0.1s ease-out;
 }
-
 .dashboard_mail_list_ani {
     background-color: #FFFFFF;
     color: #000000;
 }
-
-
 .dashboard_mail_status_img_deleted {
     margin-left: 60px;
     padding: 6px 12px 6px 12px;
@@ -305,8 +248,6 @@ body {
     -webkit-border-radius: 5px;
     background-color: rgb(64,26,145);
 }
-
-
 .dashboard_mail_status_img_archived {
     margin-left: 60px;
     padding: 6px 12px 6px 12px;
@@ -314,7 +255,6 @@ body {
     -webkit-border-radius: 5px;
     background-color: rgb(255,0,0);
 }
-
 .dashboard_score_share {
     position: absolute;
     width: 100%;
@@ -322,13 +262,10 @@ body {
     margin-top: 32px;
     margin-bottom: 120px;
     margin-left: -30px;
-    
     color: #FFFFFF;
     font-size: 24px;
     line-height: 24px;
-
     bottom: 0;
-
     cursor: pointer;
 }
 .dashboard_score_text {
@@ -344,7 +281,6 @@ body {
     text-shadow: 0 0 100px yellow;
     bottom: 0;
 }
-
 .dashboard_score_logo {
     position: absolute;
     left: 8%;
@@ -355,16 +291,6 @@ body {
     width: 200px;
     height: 66px;
 }
-
-.yhack_beat_clone {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    top: 63%;
-    left: 60px;
-    z-index: 9;
-}
-
 .this_mail_status {
     position: absolute;
     top: 180px;
@@ -378,13 +304,10 @@ body {
     z-index: 10;
     -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75);
     box-shadow:         0px 0px 20px rgba(255, 255, 255, 0.75);
-
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-
     padding-left: 12px;
 }
-
 .yataiko_logo_trans {
     background: red;
     padding: 0;
@@ -393,7 +316,6 @@ body {
     overflow: hidden;
     -webkit-box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.25);
 }
-
 .yataiko_logo_trans_circle {
     position: absolute;
     top: 20%;
@@ -402,8 +324,6 @@ body {
     padding: 10px;
     z-index: 100;
 }
-
-
 .dashboard_achievement_list {
     position: absolute;
     text-align: center;
@@ -412,7 +332,6 @@ body {
     width: 100%;
     height: 90px;
 }
-
 .dashboard_achievement_img {
     -webkit-border-radius: 5px;
     -webkit-box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.75);
@@ -420,7 +339,6 @@ body {
     margin-right: 8px;
     vertical-align: middle;
 }
-
 .dashboard_achievement_title {
     color: #FFFFFF;
     text-shadow: 0 0 100px yellow;

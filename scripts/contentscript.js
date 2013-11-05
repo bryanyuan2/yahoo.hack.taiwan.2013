@@ -360,13 +360,9 @@ $("body").append(yhack_score);
                                     mail_title_ary.push(title);
                                     mail_cid_ary.push(cid);
                                     mail_idate_ary.push(idate);
-
                                     mail_score_ary.push(0);
                                     mail_comment_ary.push("");
                                     mail_status_ary.push("");
-
-                                    //var yhack_unread_mail_title  = $('<span>').addClass("yhack_unread_mail_title").attr("id", "mail_" + i).text(title.substr(0,12));
-                                    //$(yhack_mail_board).append(yhack_unread_mail_title).fadeIn();
                                 }
 
 

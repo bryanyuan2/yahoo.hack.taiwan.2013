@@ -6,4 +6,4 @@
 
 Youtube: https://www.youtube.com/watch?v=ZmZ6lJ7gF9w&hd=1
 
-Get YA TAIKO! in chrome store: https://chrome.google.com/webstore/detail/jdnjpcfgcibeeadcbakbpnbokplidnpc/publish-delayed?hl=zh-TW
+Get YA TAIKO! in chrome store: https://chrome.google.com/webstore/detail/jdnjpcfgcibeeadcbakbpnbokplidnpc

@@ -3,7 +3,7 @@
 
   "name": "YAKAIKO - Yahoo Hack Taiwan 2013",
   "description": "YAKAIKO - Yahoo Hack Taiwan 2013",
-  "version": "0.1",
+  "version": "0.2",
 
   "icons": {
       "128": "icons/icon128x128.png",
@@ -46,6 +46,7 @@
       "images/beat/yahoo_smile_hulk_85.png",
       "images/beat/yahoo_smile_pink_85.png",
       "images/logo/yataiko_logo_original.png",
+      "images/logo/yahoo_logo_white.png",
       "images/badge/3_combos.png",
       "images/badge/5_combos.png",
       "images/badge/10_combos.png",

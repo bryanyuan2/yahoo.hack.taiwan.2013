@@ -5,10 +5,10 @@
 3. Using Yahoo Mail Web Service API, Facebook Feed Dialog API and web storage in detail
 
 Youtube: https://www.youtube.com/watch?v=ZmZ6lJ7gF9w&hd=1
-
 Get YA TAIKO! in chrome store: https://chrome.google.com/webstore/detail/jdnjpcfgcibeeadcbakbpnbokplidnpc
 
 
+### Media
 
  - [2013 Yahoo Hack Taiwan 展現「使用者經驗為核心」價值](http://iservice.libertytimes.com.tw/3c/news.php?no=10906&type=5) - 自由時報
  - [用24小時換2分鐘 雅虎開發大賽揭曉](http://www.nownews.com/n/2013/11/05/1010893) - NOWnews 今日新聞
